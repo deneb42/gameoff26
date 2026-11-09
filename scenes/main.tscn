@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bhqoq7epfw3qc"]
+
+[ext_resource type="PackedScene" uid="uid://c2wnsquum46un" path="res://scenes/map/map.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://gpd4kc2v3kq4" path="res://scripts/debug_character_ben.gd" id="2_0xm2m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oudl3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oudl3"]
+
+[node name="Main" type="Node" unique_id=383011972]
+
+[node name="Map" parent="." unique_id=1289163759 instance=ExtResource("1_ig7tw")]
+
+[node name="DebugCharacterBen" type="CharacterBody3D" parent="." unique_id=360958884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DebugCharacterBen" unique_id=607226061]
+shape = SubResource("CapsuleShape3D_oudl3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DebugCharacterBen" unique_id=1097031908]
+mesh = SubResource("CapsuleMesh_oudl3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=561554433]
+transform = Transform3D(1, 0, 0, 0, 0.12533322, 0.99211466, 0, -0.99211466, 0.12533322, 0, 50, 10)

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c2wnsquum46un"]
+
+[ext_resource type="PackedScene" uid="uid://drvw8slbill7y" path="res://scenes/map/building.tscn" id="1_c7s6e"]
+[ext_resource type="Script" uid="uid://dd42lgj33vb5a" path="res://scripts/spawns.gd" id="2_wijl4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oudl3"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4stir"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oudl3"]
+height = 5.0
+radius = 5.0
+
+[node name="Map" type="Node3D" unique_id=1289163759]
+
+[node name="ground" type="StaticBody3D" parent="." unique_id=1557185130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=920598036]
+shape = SubResource("BoxShape3D_oudl3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground" unique_id=544584869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
+mesh = SubResource("BoxMesh_4stir")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1278888154]
+transform = Transform3D(0.7721124, -0.4050355, -0.4896822, 0, -0.77056336, 0.63736343, -0.63548595, -0.49211624, -0.5949615, 0, 10, 0)
+shadow_enabled = true
+
+[node name="buildings" type="Node3D" parent="." unique_id=1249340719]
+
+[node name="North" type="Node3D" parent="buildings" unique_id=347304525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="Building1" parent="buildings/North" unique_id=549755186 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Building2" parent="buildings/North" unique_id=449172871 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="East" type="Node3D" parent="buildings" unique_id=1954470846]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 40, 0, 0)
+
+[node name="Building1" parent="buildings/East" unique_id=1248275951 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Building2" parent="buildings/East" unique_id=348788585 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="South" type="Node3D" parent="buildings" unique_id=477763673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="Building1" parent="buildings/South" unique_id=1380508355 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Building2" parent="buildings/South" unique_id=807754475 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="West" type="Node3D" parent="buildings" unique_id=996867922]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40, 0, 0)
+
+[node name="Building1" parent="buildings/West" unique_id=1536928044 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Building2" parent="buildings/West" unique_id=108624325 instance=ExtResource("1_c7s6e")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="ManifMarker" type="Marker3D" parent="." unique_id=608050387]
+unique_name_in_owner = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ManifMarker" unique_id=2066584117]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ManifMarker/StaticBody3D" unique_id=388153308]
+shape = SubResource("CylinderShape3D_oudl3")
+
+[node name="Spawns" type="Node3D" parent="." unique_id=624991764]
+script = ExtResource("2_wijl4")
+
+[node name="SpawnMarkerN" type="Marker3D" parent="Spawns" unique_id=1583576035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="SpawnMarkerE" type="Marker3D" parent="Spawns" unique_id=1192734615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="SpawnMarkerS" type="Marker3D" parent="Spawns" unique_id=1625985792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="SpawnMarkerW" type="Marker3D" parent="Spawns" unique_id=1959084259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0)
