@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c2wnsquum46un" path="res://scenes/map/map.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://gpd4kc2v3kq4" path="res://scripts/debug_character_ben.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://birrcyhd5sa40" path="res://scripts/logic.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://btdvd5pf7bgoa" path="res://scenes/gaucho.tscn" id="4_jyhfs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oudl3"]
 
@@ -23,3 +25,14 @@ mesh = SubResource("CapsuleMesh_oudl3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=561554433]
 transform = Transform3D(1, 0, 0, 0, 0.12533322, 0.99211466, 0, -0.99211466, 0.12533322, 0, 50, 10)
+
+[node name="Logic" type="Node" parent="." unique_id=1856379319 node_paths=PackedStringArray("map")]
+script = ExtResource("3_sugp2")
+gaucho = ExtResource("4_jyhfs")
+map = NodePath("../Map")
+
+[node name="SpawnTimer" type="Timer" parent="Logic" unique_id=83801342]
+wait_time = 5.268000000000001
+autostart = true
+
+[connection signal="timeout" from="Logic/SpawnTimer" to="Logic" method="_on_spawn_timer_timeout"]
