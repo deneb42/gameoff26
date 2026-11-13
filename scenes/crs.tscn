@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b8152mlocnsrj"]
+
+[ext_resource type="Material" uid="uid://bplyhceocit4b" path="res://shaders/crs.tres" id="1_us2tq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8vmlt"]
+height = 2.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rsl15"]
+material = ExtResource("1_us2tq")
+
+[sub_resource type="SphereMesh" id="SphereMesh_stc26"]
+material = ExtResource("1_us2tq")
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1434505735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=920970036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+shape = SubResource("CapsuleShape3D_8vmlt")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="." unique_id=943501896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_rsl15")
+
+[node name="HeadMesh" type="MeshInstance3D" parent="." unique_id=1549491163]
+transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, 0, 2.45, 0)
+mesh = SubResource("SphereMesh_stc26")

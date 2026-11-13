@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://btdvd5pf7bgoa"]
 
 [ext_resource type="Script" uid="uid://0eseew1gfr40" path="res://scripts/gaucho.gd" id="1_qpcw1"]
+[ext_resource type="Material" uid="uid://brmn7q08rbupb" path="res://shaders/gaucho.tres" id="2_p21il"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oudl3"]
 height = 2.8
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oudl3"]
+material = ExtResource("2_p21il")
 
 [sub_resource type="SphereMesh" id="SphereMesh_4stir"]
+material = ExtResource("2_p21il")
 
 [node name="Gaucho" type="CharacterBody3D" unique_id=1142205830]
 script = ExtResource("1_qpcw1")
